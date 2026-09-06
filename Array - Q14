@@ -1,0 +1,23 @@
+Q14 - Find All Numbers Disappeared in an Array
+
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans;
+
+        vector<bool> present(n + 1, false);
+
+        for (int x : nums) {
+            present[x] = true;
+        }
+
+        for (int i = 1; i <= n; i++) {
+            if (!present[i]) {
+                ans.push_back(i);
+            }
+        }
+
+        return ans;
+    }
+};
